@@ -1,5 +1,9 @@
 {
+<<<<<<< HEAD
   "name": "MissingTapes",
+=======
+  "name": "missing-tapes",
+>>>>>>> e17c0d1eaa0f9288c1b8699526a2b2a4b4d41636
   "version": "1.0.0",
   "description": "",
   "main": "index.js",

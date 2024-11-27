@@ -2,7 +2,11 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+<<<<<<< HEAD
       <module fileurl="file://$PROJECT_DIR$/.idea/MissingTapes.iml" filepath="$PROJECT_DIR$/.idea/MissingTapes.iml" />
+=======
+      <module fileurl="file://$PROJECT_DIR$/.idea/missing-tapes.iml" filepath="$PROJECT_DIR$/.idea/missing-tapes.iml" />
+>>>>>>> e17c0d1eaa0f9288c1b8699526a2b2a4b4d41636
     </modules>
   </component>
 </project>
