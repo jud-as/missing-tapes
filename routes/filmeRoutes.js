@@ -1,8 +1,8 @@
 const express = require('express')
 const multer = require('multer')
 const sharp = require('sharp')
-const fs = require('fs')
-const {set} = require("express/lib/application");
+const fs = require('fs').promises
+
 const router = express.Router()
 
 
@@ -12,7 +12,7 @@ let nextId = 1 // id do próximo filme a ser adicionado
 
 // Configuração do multer para upload de imagens
 const storage = multer.diskStorage({
-    destination: (req, res, cb) => {
+    destination: (req, file, cb) => {
         cb(null, 'public/images') // Define o diretório de destino para uploads
     },
     filename: (req, file, cb) => {
@@ -37,14 +37,15 @@ router.post('/add-filme', upload.single('imagem'), async (req, res) => {
             .resize(166, 250)
             .toFile(resizedImagePath)
 
-        // Deleta a imagem original após um pequeno atraso
-        setTimeout(() => {
-            try {
-                fs.unlinkSync(imagem);
-            } catch (err) {
-                console.error(`Erro ao deletar a imagem ${err}`)
-            }
-        }, 100)
+        try {
+            // Adiciona um pequeno delay antes de tentar deletar a imagem original
+            await new Promise(resolve => setTimeout(resolve, 1000))
+            await fs.chmod(imagem, 0o666)
+            await fs.unlink(imagem)
+            console.log(`Arquivo deletado: ${imagem}`)
+        } catch (err) {
+            console.error(`Erro ao deletar o arquivo: ${err}`)
+        }
 
         filmes.push(
             {

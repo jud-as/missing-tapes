@@ -16,11 +16,12 @@ app.use(bodyParser.urlencoded({ extended: true }));
 // Servir arquivos estáticos do diretório 'public/images'
 app.use('/public/images', express.static(path.join(__dirname, 'public/images')));
 
-app.get('/', (request, response) => {
-    response.send('Hello World')
+// Servir arquivos estáticos do diretório 'views/'
+app.use(express.static(path.join(__dirname, 'views')));
+
+app.get('/', (req, res) => {
+    res.render('index.html')
 })
-
-
 
 app.use('/', filmeRoutes)
 
