@@ -2,6 +2,7 @@ const mustacheExpress = require('mustache-express');
 const express = require('express');
 const bodyParser = require('body-parser');
 const filmeRoutes = require('./routes/filmeRoutes');
+const path = require('path');
 
 let app = express();
 
@@ -12,9 +13,14 @@ app.set('views engine', 'html');
 app.set('views', __dirname + '/views');
 app.use(bodyParser.urlencoded({ extended: true }));
 
+// Servir arquivos estáticos do diretório 'public/images'
+app.use('/public/images', express.static(path.join(__dirname, 'public/images')));
+
 app.get('/', (request, response) => {
     response.send('Hello World')
 })
+
+
 
 app.use('/', filmeRoutes)
 
