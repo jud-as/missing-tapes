@@ -1,7 +1,7 @@
 const users = []
 
 // cadastro de usuario
-export function registerUser(userData) {
+function registerUser(userData) {
     const { nome, nomeDeUsuario, telefone, email, cpf, senha } = userData
 
     if (!nome || !nomeDeUsuario || !telefone || !email || !cpf || !senha) {
@@ -18,7 +18,7 @@ export function registerUser(userData) {
 }
 
 // login
-export function loginUser(loginData) {
+function loginUser(loginData) {
     const { nomeDeUsuario, senha } = loginData
 
     if (!nomeDeUsuario || !senha) {
@@ -33,7 +33,7 @@ export function loginUser(loginData) {
 }
 
 // logout
-export function logoutUser(logoutData) {
+function logoutUser(logoutData) {
     const { nomeDeUsuario } = logoutData
 
     if (!nomeDeUsuario) {
@@ -50,7 +50,7 @@ export function logoutUser(logoutData) {
 }
 
 // editar
-export function editUser(userData) {
+function editUser(userData) {
     const { nomeDeUsuario, novaSenha } = userData
 
     if (!nomeDeUsuario || !novaSenha) {
@@ -67,7 +67,7 @@ export function editUser(userData) {
 }
 
 // remover
-export function removeUser(userData) {
+function removeUser(userData) {
     const { nomeDeUsuario } = userData
 
     if (!nomeDeUsuario) {
@@ -81,4 +81,12 @@ export function removeUser(userData) {
 
     users.splice(userIndex, 1)
     return { success: true, message: 'Usuário removido com sucesso' }
+}
+
+module.exports = {
+    registerUser,
+    loginUser,
+    logoutUser,
+    editUser,
+    removeUser
 }

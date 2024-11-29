@@ -2,10 +2,10 @@ const mustacheExpress = require('mustache-express');
 const express = require('express');
 const bodyParser = require('body-parser');
 const filmeRoutes = require('./routes/filmeRoutes');
+const userRoutes = require('./routes/userRoutes');
 const path = require('path');
 
 let app = express();
-
 
 // Registrar '.html' como extensão de arquivos de visualização
 app.engine('html', mustacheExpress());
@@ -20,17 +20,12 @@ app.use('/public/images', express.static(path.join(__dirname, 'public/images')))
 app.use(express.static(path.join(__dirname, 'views')));
 
 app.get('/', (req, res) => {
-    res.render('index.html')
-})
+    res.render('index.html');
+});
 
-app.use('/', filmeRoutes)
+app.use('/', filmeRoutes);
+app.use('/', userRoutes);
 
 app.listen(3000, function () {
-    console.log('Server rodando na porta 3000')
-})
-
-/* Rotas
-* 1. Tipo / Metodo HTTP
-* 2. URL
-* 3. Função de callback (request, response)
-*/
+    console.log('Server rodando na porta 3000');
+});
