@@ -2,8 +2,8 @@
 <html lang="pt-br">
 <head>
   <meta charset="UTF-8">
-  <title>Fazer login</title>
-  <link rel="stylesheet" href="login.css">
+  <title>deslogar</title>
+  <link rel="stylesheet" href="logout.css">
 </head>
 <body>
 <header>
@@ -18,14 +18,10 @@
     <a href="http://localhost:3000/cadastrar">Registro</a>
   </nav>
 </header>
-<form id="loginForm" action="/login" method="POST">
+<form action="/logout" method="POST">
   <label>
-    <input type="text" name="nomeDeUsuario" placeholder="Nome de Usuário" required>
-    <input type="password" name="senha" placeholder="Senha" required>
-    <button type="submit">Login</button>
+    <button type="submit">Deslogar</button>
   </label>
 </form>
-<div id="message"></div>
-<script src="login.js"></script>
 </body>
 </html>
