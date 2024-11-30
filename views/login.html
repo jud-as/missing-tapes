@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>Fazer login</title>
+  <link rel="stylesheet" href="login.css">
+</head>
+<body>
+<header>
+  <div class="logo">
+    <img src="/public/images/icon.jpg" alt="Missing Tapes Logo">
+    <a href="http://localhost:3000/">Missing Tapes</a>
+  </div>
+  <nav>
+    <a href="http://localhost:3000/catalogo">Catálogo</a>
+    <a href="http://localhost:3000/login">Login</a>
+    <a href="http://localhost:3000/logout">Logout</a>
+    <a href="http://localhost:3000/cadastrar">Registro</a>
+  </nav>
+</header>
+<form id="loginForm" action="/login" method="POST">
+  <label>
+    <input type="text" name="nomeDeUsuario" placeholder="Nome de Usuário" required>
+    <input type="password" name="senha" placeholder="Senha" required>
+    <button type="submit">Login</button>
+  </label>
+</form>
+<div id="message"></div>
+<script src="login.js"></script>
+</body>
+</html>
